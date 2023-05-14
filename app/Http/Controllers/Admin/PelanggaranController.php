@@ -11,6 +11,7 @@ use App\Models\Santri;
 use App\Models\SantriPengajar;
 use App\Models\Santripengajar as ModelsSantripengajar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PelanggaranController extends Controller
 {
@@ -27,6 +28,7 @@ class PelanggaranController extends Controller
         $data['data'] = Pelanggaran::with(['pelanggaran_masters', 'santripengajars'])->get();
         $data['santri'] = Santri::get();
         $data['pengajar'] = Pengajar::get();
+        // dd($data['data']);
         return view('admin.input_pelanggaran', $data);
     }
     public function createedit(Request $request) // Insert data wajit variabel reqeuest
@@ -86,5 +88,33 @@ class PelanggaranController extends Controller
             ->groupby('no_identitas')
             ->groupby('nama')->get();
         return view('admin.laporan.laporan_pelanggaran', $data);
+    }
+
+    public function laporanpelanggaransantri()
+    {
+        $data = Template::getadmin();
+        array_push($data['pilihCss'], "dataTables1", "dataTables2");
+        array_push($data['pilihJs'], "dataTables1", "dataTables2", "dataTables3", "dataTables4");
+
+        $data['jsTambahan'] = " 
+        $('#laporan').addClass('menu-is-opening menu-open');
+        $('#webNavlaporan').addClass('active');
+        $('#laporanpelanggaran').addClass('active');
+        $('#example1').DataTable() ;";
+
+        $noIndentitas = Auth::user()->no_identitas;
+        $data['data'] =
+            // select santripengajars.no_identitas,santripengajars.nama,sum(pelanggaran_masters.poin) as totalpoin from pelanggaran
+            // join pelanggaran master = pelaanggaran.pelanggaran_master_id
+            // join santripengajar = pengajar.no_indentias
+            // group by 
+            Pelanggaran::select('santripengajars.no_identitas', 'santripengajars.nama')
+            ->selectRaw('sum(pelanggaran_masters.poin) AS totalpoin')
+            ->join('pelanggaran_masters', 'pelanggaran_masters.id', 'pelanggarans.pelanggaran_master_id')
+            ->join('santripengajars', 'santripengajars.no_identitas', 'pelanggarans.no_identitas')
+            ->where('pelanggarans.no_identitas', $noIndentitas)
+            ->groupby('no_identitas')
+            ->groupby('nama')->get();
+        return view('santri.santri_pelanggaran', $data);
     }
 }

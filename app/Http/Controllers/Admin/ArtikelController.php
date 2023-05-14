@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class ArtikelController extends Controller
 {
+
     public function show()
     {
         $data = Template::getadmin();
@@ -55,6 +56,7 @@ class ArtikelController extends Controller
         if ($request->has('edit')) {
             Artikel::where('id', $request->id)->update($vaUpdate);
         } else {
+            // echo "<script>alert('Your message Here');</script>";
             Artikel::create($vaUpdate);
         }
 

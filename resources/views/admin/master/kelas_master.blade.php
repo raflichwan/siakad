@@ -25,7 +25,9 @@
                     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-tambah">
                         Tambah
                     </button>
-
+                    <button type="button" class="btn btn-success toastrDefaultSuccess">
+                        Launch Success Toast
+                    </button>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -118,15 +120,17 @@
                 </div>
                 <div class="modal-footer justify-content-between bg-light">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" name="edit" class="btn btn-primary">Save </button>
+                    <button type="submit" name="edit" class="btn btn-primary toastrDefaultSuccess">Save </button>
                 </div>
 
             </form>
+
         </div>
 
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
+
 </div>
 @endsection
 
@@ -136,7 +140,7 @@
         var table = $('#example1').DataTable();
         var data = table.row(this).data();
         $("#idkelas").val(data[0]);
-        $("#keterangan").val(data[1]);
+        $("#keteprangan").val(data[1]);
 
     });
 </script>

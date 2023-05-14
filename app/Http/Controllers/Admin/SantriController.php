@@ -61,9 +61,28 @@ class SantriController extends Controller
             "data" => $santri
         ];
     }
-    public function api(Santri $santri)
+    public function readapi(Santri $santri)
     {
         return [
+            "data" => $santri
+        ];
+    }
+
+    public function store(Request $request)
+    {
+        $vaUpdate = array(
+            "nis" => $request->nis,
+            "nama" => $request->nama,
+            "alamat" => $request->alamat,
+            "jenis_kelamin" => $request->jenis_kelamin,
+            "tanggal_lahir" => $request->tanggal_lahir,
+            "kelas" => $request->kelas,
+            "no_hp" => $request->no_hp
+        );
+
+        $santri = Santri::create($vaUpdate);
+        return [
+            "status" => 1,
             "data" => $santri
         ];
     }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>SIAKAD Pondok Pesantren</title>
     <!-- PWA  -->
     <meta name="theme-color" content="#6777ef" />
     <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
@@ -32,10 +32,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <div class="nav-link">Sistem Informasi Akademik</div>
                 </li>
             </ul>
 
@@ -43,102 +40,13 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
 
+                <li class="nav-item">
+                    <a class="nav-link" href="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
 
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -146,20 +54,20 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <!-- <a href="index3.html" class="brand-link">
                 <img src="{{ url('dist/img/AdminLTELogo.png') }} " alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
-            </a>
+                <span class="brand-text font-weight-light">SIAKAD </span>
+            </a> -->
 
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
+                    <!-- <div class="image">
                         <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-                    </div>
+                    </div> -->
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">{{Auth::user()->name}}</a>
                     </div>
                 </div>
 
@@ -176,6 +84,8 @@
                                 </p>
                             </a>
                         </li>
+
+
                         @if (Auth::user()->level == '1')
                         <li class="nav-item" id="master">
                             <a href="#" class="nav-link" id="webNav">
@@ -212,23 +122,23 @@
                                 </li>
                             </ul>
 
-                            <ul class="nav nav-treeview">
+                            <!-- <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{url('santri')}}" class="nav-link" id="santri">
                                         <i class="far fa-circle nav-icon "></i>
                                         <p>Santri</p>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
 
-                            <ul class="nav nav-treeview">
+                            <!-- <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{url('pengajar')}}" class="nav-link" id="pengajar">
                                         <i class="far fa-circle nav-icon "></i>
                                         <p>Pengajar</p>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
 
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -258,7 +168,6 @@
                             </ul>
 
                         </li>
-                        @endif
 
 
                         <li class="nav-item" id="laporan">
@@ -286,6 +195,24 @@
                                     <a href="{{url('laporanabsensi')}}" class="nav-link" id="laporanabsensi">
                                         <i class="far fa-circle nav-icon "></i>
                                         <p>Absensi</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a onClick="FilterRaport()" class="nav-link" id="laporanraport">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>Raport</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('laporanpenjengukan')}}" class="nav-link" id="laporanpenjengukan">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>Penjengukan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('laporanperizinan')}}" class="nav-link" id="laporanperizinan">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>Perizinan</p>
                                     </a>
                                 </li>
                             </ul>
@@ -322,7 +249,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a href="{{url('datasantri')}}" class="nav-link" id="inputnilai">
+                            <a href="{{url('nilaisantri')}}" class="nav-link" id="nilaisantri">
                                 <i class="nav-icon fas fa-exclamation-circle"></i>
 
                                 <p>
@@ -330,6 +257,120 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item ">
+                            <a href="{{url('datapengajar')}}" class="nav-link" id="datapengajar">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Data Pengajar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('datasantri')}}" class="nav-link" id="inputnilai">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Absensi Santri
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('laporanjadwal')}}" class="nav-link" id="laporanjadwal">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Jadwal Pengajar
+                                </p>
+                            </a>
+                        </li>
+                        @elseif(Auth::user()->level == '2')
+
+                        <li class="nav-item ">
+                            <a href="{{url('datapengajar')}}" class="nav-link" id="datapengajar">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Data Pengajar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('absensantri')}}" class="nav-link" id="inputnilai">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Absensi Santri
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('jadwalpengajar')}}" class="nav-link" id="laporanjadwal">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Jadwal Pengajar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('nilaisantri')}}" class="nav-link" id="nilaisantri">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Input Nilai
+                                </p>
+                            </a>
+                        </li>
+                        @else
+                        <li class="nav-item ">
+                            <a href="{{url('datadetailsantri')}}" class="nav-link" id="datasantri">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Data Santri
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('laporanpelanggaransantri')}}" class="nav-link" id="laporanpelanggaransantri">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Pelanggaran Santri
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('perizinansantri')}}" class="nav-link" id="perizinansantri">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Perizinan Santri
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a onClick="FilterRaport()" class="nav-link" id="laporanraport">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Raport Santri
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('laporanjadwal/'.$kelassantri)}}" class="nav-link" id="inputnilai">
+                                <i class="nav-icon fas fa-exclamation-circle"></i>
+
+                                <p>
+                                    Jadwal Pelajaran Santri
+                                </p>
+                            </a>
+                        </li>
+                        @endif
+
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -384,5 +425,92 @@
         }
     </script>
 </body>
+<div class="modal fade" id="modal-raport">
+    <div class="modal-dialog modal-default">
+        <div class="modal-content">
+            <form id="form22">
+                @csrf
+                <div class="modal-header">
+                    <h4 class="modal-title">Cetak Raport</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        @if(Auth::user()->level != '3')
+
+                        <label for="inputEmail3" class="col-sm-3 col-form-label">Kelas</label>
+                        <div class="col-sm-9">
+                            <select name="kelas" id="kelasss" class="form-control">
+                                <option>Pilih Kelas</option>
+                                @foreach($kelasFilter as $value)
+                                <option value="{{ $value->id }}"> {{ $value->keterangan }} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @endif
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-3 col-form-label">Periode</label>
+                        <div class="col-sm-9">
+                            <select name="semester" id="semester" class="form-control">
+                                <option value="06"> Ganjil</option>
+                                <option value="12">Genap</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-3 col-form-label">Tahun</label>
+                        <div class="col-sm-9">
+                            <select name="tahun" id="tahun" class="form-control">
+                                <option value="2023"> 2023</option>
+                                <option value="2024">2024</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between bg-light">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="preview()" class="btn btn-primary">Preview </button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script>
+    function FilterRaport() {
+        // alert('oke');
+        $('#modal-raport').modal('show');
+    }
+
+    function preview() {
+        var data = {
+            'kelas': $("#kelasss").val(),
+            'tahun': $("#tahun").val(),
+            'semester': $("#semester").val()
+        };
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            url: "/raportpdf",
+            type: "post",
+            dataType: "JSON",
+            data: data,
+            success: function(data) {
+                window.open('downloadpdf', '_blank');
+            }
+        });
+    }
+    var notif = "{{ Session::get('notif') }}";
+    if (notif != "") {
+        toastr.success(notif);
+    }
+</script>
+
+<?php session()->forget('notif'); ?>
 
 </html>

@@ -9,6 +9,8 @@ class Santripengajar extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    protected $primaryKey = 'no_identitas';
     public $fillable = ["no_identitas", "nama", "alamat", "jenis_kelamin", "tanggal_lahir", "kelas", "no_hp", "type"];
 
     function kelas_masters()

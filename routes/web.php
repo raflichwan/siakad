@@ -13,10 +13,16 @@ use App\Http\Controllers\Admin\NilaiController;
 use App\Http\Controllers\Admin\PelanggaranController;
 use App\Http\Controllers\Admin\PelanggaranMasterController;
 use App\Http\Controllers\Admin\PengajarController;
+use App\Http\Controllers\Admin\PerizinanController;
+use App\Http\Controllers\Admin\RaportController;
 use App\Http\Controllers\Admin\SantriController;
 use App\Http\Controllers\Admin\SantripengajarMasterController;
 use App\Http\Controllers\PenjengukanController;
+use App\Http\Controllers\Santri\PerizinanController as SantriPerizinanController;
+use App\Models\Nilai;
 use App\Models\PelanggaranMaster;
+use App\Models\Santripengajar;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +35,10 @@ use App\Models\PelanggaranMaster;
 |
 */
 
-Route::get('coba', function () {
-    return view('coba');
+Route::get('maps/{id}/{ida}', function ($a, $b) {
+    $data['lat'] = $a;
+    $data['lgt'] = $b;
+    return view('coba1', $data);
 });
 
 Route::get("/", [GuestController::class, 'show']);
@@ -65,8 +73,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get("viewsantripengajar/{id?}", [SantripengajarMasterController::class, 'viewsantripengajar']); // Show tampilan
 
     //Nilai
-    Route::get("datasantri/{id?}", [NilaiController::class, 'datasantri']); // Show tampilan
-    Route::get("export/{id?}", [NilaiController::class, 'export']); // Show tampilan
+    Route::get("nilaisantri/{id?}", [NilaiController::class, 'nilaisantri']); // Show tampilan
+    Route::get("export/{id?}/{idmapel?}", [NilaiController::class, 'export']); // Show tampilan
     Route::post("uploadnilai", [NilaiController::class, 'import']); // Show tampilan
 
     //Pelanggaran Master
@@ -108,6 +116,34 @@ Route::middleware(['auth'])->group(function () {
     //Laporan Absensi
     Route::get("laporanabsensi/{id?}", [AbsensiController::class, 'laporan']); // Show tampilan
 
+    //Raport
+    Route::get("laporanraport", [RaportController::class, 'show']); // Show tampilan
+    Route::post("raportpdf/{id?}", [RaportController::class, 'pdf']); // Show tampilan
+    Route::get("downloadpdf", [RaportController::class, 'download']); // Show tampilan
+
+    //Laporan Penjengukan
+    Route::get("laporanpenjengukan", [PenjengukanController::class, 'show']); // Show tampilan
+
+    //Laporan Perizinan
+    Route::get("laporanperizinan", [PerizinanController::class, 'show']); // Show tampilan
+    Route::get("laporanperizinanacc/{id?}/{id2?}", [PerizinanController::class, 'acc']); // Show tampilan
+
+    //perizinan santri
+    Route::get("perizinansantri", [SantriPerizinanController::class, 'show']); // Show tampilan
+    Route::post("perizinansantri", [SantriPerizinanController::class, 'createedit']); //Create Edit Insert Artikel
+    Route::post("perizinansantriupload", [SantriPerizinanController::class, 'upload']); //Create Edit Insert Artikel
+
+    Route::get("perizinansantridelete/{id?}", [SantriPerizinanController::class, 'destory']); // Show tampilan
+
+    //Pengajar User
+    Route::get("datapengajar", [SantripengajarMasterController::class, 'datapengajar']); // Show tampilan
+    Route::get("absensantri", [AbsensiController::class, 'absensantri']); // Show tampilan
+    Route::get("jadwalpengajar/{id?}", [JadwalPelajaranController::class, 'jadwalpengajar']); // Show tampilan
+
+    //santri User
+    Route::get("datadetailsantri", [SantripengajarMasterController::class, 'datasantri']); // Show tampilan
+    Route::get("laporanpelanggaransantri", [PelanggaranController::class, 'laporanpelanggaransantri']); // Show tampilan
+    Route::get("jadwalsantri/{id?}", [JadwalPelajaranController::class, 'jadwalsantri']); // Show tampilan
 
 });
 

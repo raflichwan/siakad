@@ -22,6 +22,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
+                    @if(Auth::user()->level != '3')
                     <div class="btn-group">
                         <!-- <button type="button" class="btn btn-info">Action</button> -->
                         <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
@@ -33,6 +34,7 @@
                             @endforeach
                         </div>
                     </div>
+                    @endif
 
                 </div>
                 <!-- /.card-header -->

@@ -29,6 +29,25 @@ class AbsensiController extends Controller
         $data['absen'] = Absen::with(['santripengajars'])->get();
         return view('admin.absen', $data);
     }
+
+    public function absensantri()
+    {
+        $data = Template::getadmin();
+        array_push($data['pilihCss'], "dataTables1", "dataTables2");
+        array_push($data['pilihJs'], "dataTables1", "dataTables2", "dataTables3", "dataTables4");
+
+        $data['jsTambahan'] = " 
+        $('#absen').addClass('active');
+        $('#example1').DataTable() ;
+        $('#example2').DataTable() ;
+        $('#summernoteedit').summernote();
+        $('#summernote').summernote();";
+        $data['data'] = Santripengajar::select("santripengajars.no_identitas", "santripengajars.nama", "santripengajars.alamat", "santripengajars.no_hp")->leftjoin('absens', 'absens.no_identitas', 'santripengajars.no_identitas')
+            ->whereNull('absens.no_identitas')
+            ->where("type", "s")->get()->toArray();
+        $data['absen'] = Absen::with(['santripengajars'])->get();
+        return view('pengajar.absen', $data);
+    }
     public function createedit(Request $request) // Insert data wajit variabel reqeuest
     {
         $vaUpdate = array();
@@ -40,8 +59,13 @@ class AbsensiController extends Controller
         // dd($vaUpdate);
 
         Absen::insert($vaUpdate);
-
-        // return redirect('artikeladmin');
+        $url = explode("/", url()->previous());
+        if ($url['3'] == "absensantri") {
+            return redirect('absensantri');
+        } else {
+            return redirect('absensi');
+        }
+        //
     }
 
     public function destory($id)

@@ -15,12 +15,12 @@ class PenjengukanController extends Controller
         array_push($data['pilihJs'], "dataTables1", "dataTables2", "dataTables3", "dataTables4");
 
         $data['jsTambahan'] = " 
-        $('#master').addClass('menu-is-opening menu-open');
-        $('#webNav').addClass('active');
-        $('#penjengukan').addClass('active');
+        $('#laporan').addClass('menu-is-opening menu-open');
+        $('#webNavlaporan').addClass('active');
+        $('#laporanpenjengukan').addClass('active');
         $('#example1').DataTable() ;";
         $data['data'] = Penjengukan::get();
-        return view('admin.penjengukan', $data);
+        return view('admin.laporan.penjengukan', $data);
     }
 
     public function createedit(Request $request) // Insert data wajit variabel reqeuest

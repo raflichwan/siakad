@@ -35,6 +35,7 @@ class KelasMasterController extends Controller
             KelasMaster::where('id', $request->id)->update($vaUpdate);
         } else {
             KelasMaster::create($vaUpdate);
+            $request->session()->put('notif', "Data berhasil ditambhkan");
         }
 
         return redirect('kelasmaster');

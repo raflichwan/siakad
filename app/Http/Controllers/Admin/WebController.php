@@ -33,6 +33,7 @@ class WebController extends Controller
         } else {
             $vaUpdate = array("description" => $request->input('description'));
         }
+        // dd($vaUpdate);
         Web::where('name', $request->name)->update($vaUpdate);
         return redirect('web');
     }

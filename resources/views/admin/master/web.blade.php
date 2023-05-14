@@ -86,7 +86,7 @@
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-1 col-form-label">Foto</label>
                         <div class="col-sm-11">
-                            <input type="file" name="url" class="form-control">
+                            <input type="file" name="foto" accept="image/*" capture="camera" class="form-control">
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Web extends Model
 {
     use HasFactory;
-    public $timestamps = false ;
-    public $fillable = ["description","name"];
+    public $timestamps = false;
+    public $fillable = ["id", "description", "name", "path"];
 }

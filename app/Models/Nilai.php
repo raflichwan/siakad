@@ -15,4 +15,9 @@ class Nilai extends Model
     {
         return $this->belongsTo(Santripengajar::class, 'no_identitas', 'no_identitas');
     }
+
+    function mapel()
+    {
+        return $this->belongsTo(MataPelajaranMaster::class, 'mapel_id', 'id');
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Library\Services;
 
+use App\Models\KelasMaster;
+use App\Models\Santripengajar;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -29,15 +31,15 @@ class Template
         $css['remixicon'] = "assets/vendor/remixicon/remixicon.css";
         $css['swiperbundle'] = "assets/vendor/swiper/swiper-bundle.min.css";
         $css['style'] = "assets/css/style.css";
-        
+
         /*
             SELECT CSS 
         */
         foreach ($css as $key => $value) {
             array_push($data['pilihCss'], $key);
         }
-       
-        
+
+
         /*
             JAVASCRIPT YANG SELALU DIGUNAKAN ADMIN LTE
         */
@@ -56,7 +58,7 @@ class Template
 
         $data['js'] = $js;
         $data['css'] = $css;
-       
+
         return $data;
     }
 
@@ -78,7 +80,9 @@ class Template
         $css['OverlayScrollbars'] = "plugins/overlayScrollbars/css/OverlayScrollbars.min.css";
         $css['daterangepicker'] = "plugins/daterangepicker/daterangepicker.css";
         $css['summernote'] = "plugins/summernote/summernote-bs4.min.css";
-        
+        $css['toast'] = "plugins/toastr/toastr.min.css";
+
+
         /*
             SELECT CSS 
         */
@@ -88,7 +92,7 @@ class Template
 
         $css['dataTables1'] = "plugins/datatables-bs4/css/dataTables.bootstrap4.min.css";
         $css['dataTables2'] = "plugins/datatables-responsive/css/responsive.bootstrap4.min.css";
-        
+
         /*
             JAVASCRIPT YANG SELALU DIGUNAKAN ADMIN LTE
         */
@@ -108,6 +112,7 @@ class Template
         $js['adminlte'] = "dist/js/adminlte.js";
         $js['demo'] = "dist/js/demo.js";
         $js['dashboard'] = "dist/js/pages/dashboard.js";
+        $js['toast'] = "plugins/toastr/toastr.min.js";
         // SELECT JS 
         foreach ($js as $key => $value) {
             array_push($data['pilihJs'], $key);
@@ -120,8 +125,13 @@ class Template
 
         $data['js'] = $js;
         $data['css'] = $css;
-       
+        $data['kelasFilter'] = KelasMaster::get();
+        $data['noIdentitas'] = Auth::user()->no_identitas;
+        if (Auth::user()->level == '3') {
+            $noIdentitas = Auth::user()->no_identitas;
+            $dataKelas = Santripengajar::where("no_identitas", $noIdentitas)->first();
+            $data['kelassantri'] = $dataKelas->kelas;
+        }
         return $data;
     }
-    
 }

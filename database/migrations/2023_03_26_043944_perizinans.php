@@ -13,7 +13,17 @@ class Perizinans extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('perizinans', function (Blueprint $table) {
+            $table->id();
+            $table->string('no_identitas')->nullable();;
+            $table->date('tanggal_permohonan')->nullable();;
+            $table->date('tanggal_perizinan')->nullable();;
+            $table->string('keterangan')->nullable();;
+            $table->string('status')->nullable();;
+            $table->string('gambar')->nullable();;
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ class Perizinans extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('perizinans');
     }
 }

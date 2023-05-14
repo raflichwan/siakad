@@ -36,9 +36,14 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label">Upload File</label>
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Pilih Mata Pelajaran</label>
                             <div class="col-sm-9">
-                                <input type="file" name="nilai" class="form-control">
+                                <select name="mapel" id="mapel" class="form-control">
+                                    <option>Pilih Kelas</option>
+                                    @foreach($mapel as $value)
+                                    <option value="{{ $value->id }}"> {{ $value->nama_mapel}} </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -62,7 +67,14 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">Upload File</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="nilai" class="form-control">
+                            </div>
+                        </div>
                     </div>
+
                     <div class="card-footer">
                         <button type="button" class="btn btn-success" onclick="Download()">Download</button>
                         <button type="submit" class="btn btn-primary float-right"> Save </button>
@@ -84,11 +96,15 @@
                         </thead>
                         <tbody>
                             @foreach($nilai as $value)
-                            <td>{{ $value->santripengajars->no_identitas }}</td>
-                            <td>{{ $value->santripengajars->nama }}</td>
-                            <td>{{ $value->kitab }}</td>
-                            <td>{{ $value->tulis }}</td>
-                            @endforeach
+                            <tr>
+
+                                <td>{{ $value->santripengajars->no_identitas }}</td>
+                                <td>{{ $value->santripengajars->nama }}</td>
+                                <td>{{ $value->kitab }}</td>
+                                <td>{{ $value->tulis }}</td>
+
+                            <tr>
+                                @endforeach
                         </tbody>
 
                     </table>
@@ -106,8 +122,9 @@
 <script>
     function Download() {
         var kelas = $("#kelass").val();
+        var mapel = $("#mapel").val();
         //if (kelas != "") {
-        var a = "{{ url('export/') }}" + "/" + kelas;
+        var a = "{{ url('export/') }}" + "/" + kelas + "/" + mapel;
         window.location.href = a;
 
         // } else {
